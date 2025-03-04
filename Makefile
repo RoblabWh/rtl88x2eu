@@ -150,7 +150,7 @@ CONFIG_WOW_LPS_MODE = default
 CONFIG_SUSPEND_TYPE = 0
 CONFIG_WOW_STA_MIX = n
 CONFIG_GPIO_WAKEUP = n
-# Please contact with RTK support team first. After getting the agreement from RTK support team, 
+# Please contact with RTK support team first. After getting the agreement from RTK support team,
 # you are just able to modify the CONFIG_WAKEUP_GPIO_IDX with customized requirement.
 CONFIG_WAKEUP_GPIO_IDX = default
 CONFIG_HIGH_ACTIVE_DEV2HST = n
@@ -532,7 +532,7 @@ endif
 EXTRA_CFLAGS += -DCONFIG_RTL8821A
 
 _HAL_INTFS_FILES +=	hal/rtl8812a/hal8821a_fw.o
-		
+
 endif
 
 ifeq ($(CONFIG_BT_COEXIST), y)
@@ -1001,7 +1001,7 @@ _HAL_INTFS_FILES +=	\
 			hal/$(RTL871X)/$(HCI_NAME)/rtl$(MODULE_SUB_NAME)_led.o \
 			hal/$(RTL871X)/$(HCI_NAME)/rtl$(MODULE_SUB_NAME)_xmit.o \
 			hal/$(RTL871X)/$(HCI_NAME)/rtl$(MODULE_SUB_NAME)_recv.o
-			
+
 ifeq ($(CONFIG_PCI_HCI), y)
 _HAL_INTFS_FILES += hal/$(RTL871X)/$(HCI_NAME)/$(HCI_NAME)_ops_linux.o
 else
@@ -1418,7 +1418,7 @@ EXTRA_CFLAGS += -DCONFIG_LITTLE_ENDIAN -DCONFIG_USB_INBAND
 EXTRA_CFLAGS += -DCONFIG_IOCTL_CFG80211 -DRTW_USE_CFG80211_STA_EVENT
 EXTRA_CFLAGS += -DCONFIG_PLATFORM_I386_PC
 
-SUBARCH := $(shell uname -m | sed -e s/i.86/i386/)
+SUBARCH := $(shell uname -m | sed -e "s/i.86/i386/; s/ppc/powerpc/; s/armv.l/arm/; s/aarch64/arm64/;")
 ARCH ?= $(SUBARCH)
 CROSS_COMPILE ?=
 KVER  := $(shell uname -r)
@@ -2323,7 +2323,7 @@ ARCH := arm
 CROSS_COMPILE := /home/android_sdk/Telechips/v13.05_r1-tcc-android-4.2.2_tcc893x-evm_build/prebuilts/gcc/linux-x86/arm/arm-eabi-4.6/bin/arm-eabi-
 KSRC := /home/android_sdk/Telechips/v13.05_r1-tcc-android-4.2.2_tcc893x-evm_build/kernel
 MODULE_NAME := wlan
-endif 
+endif
 
 ifeq ($(CONFIG_PLATFORM_RTL8197D), y)
 EXTRA_CFLAGS += -DCONFIG_BIG_ENDIAN -DCONFIG_PLATFORM_RTL8197D
