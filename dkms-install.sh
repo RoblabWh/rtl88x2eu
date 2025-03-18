@@ -17,6 +17,11 @@ dkms build -m ${DRV_NAME} -v ${DRV_VERSION}
 dkms install -m ${DRV_NAME} -v ${DRV_VERSION}
 RESULT=$?
 
+if [ $RESULT -ne 0 ]; then
+  echo "Failed to install driver."
+  exit $RESULT
+fi
+
 echo "Finished running dkms install steps."
 
 SYSCTL_DIR="/etc/sysctl.d"
