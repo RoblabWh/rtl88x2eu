@@ -27,8 +27,8 @@ if echo "#Disable IPv6
 net.ipv6.conf.all.disable_ipv6 = 1
 net.ipv6.conf.default.disable_ipv6 = 1
 net.ipv6.conf.lo.disable_ipv6 = 1" > ${SYSCTL_DIR}/${DRV_NAME}.conf; then
-	echo "Disabled IPv6 Successfuly "
-	sysctl -p
+	sysctl -p ${SYSCTL_DIR}/${DRV_NAME}.conf
+	echo "Disabled IPv6 Successfuly"
 else
 	echo "Could not disable IPv6"
 fi
