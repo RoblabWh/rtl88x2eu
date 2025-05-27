@@ -10,7 +10,7 @@ fi
 DRV_NAME=rtl88x2eu
 DRV_VERSION=5.15.0.1
 
-cp -r "$(pwd)" /usr/src/${DRV_NAME}-${DRV_VERSION}
+cp -r "$(realpath "$(pwd)")" /usr/src/${DRV_NAME}-${DRV_VERSION}
 
 dkms add -m ${DRV_NAME} -v ${DRV_VERSION}
 dkms build -m ${DRV_NAME} -v ${DRV_VERSION}
