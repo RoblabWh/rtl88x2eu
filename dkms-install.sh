@@ -24,19 +24,4 @@ fi
 
 echo "Finished running dkms install steps."
 
-SYSCTL_DIR="/etc/sysctl.d"
-SYSCTL_CFG="${SYSCTL_DIR}/97-${DRV_NAME}.conf"
-
-[ ! -d ${SYSCTL_DIR} ] && mkdir /etc/sysctl.d
-
-if echo "#Disable IPv6
-net.ipv6.conf.all.disable_ipv6 = 1
-net.ipv6.conf.default.disable_ipv6 = 1
-net.ipv6.conf.lo.disable_ipv6 = 1" > ${SYSCTL_CFG}; then
-	sysctl -p ${SYSCTL_CFG}
-	echo "Disabled IPv6 Successfuly"
-else
-	echo "Could not disable IPv6"
-fi
-
 exit $RESULT
