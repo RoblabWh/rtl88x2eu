@@ -12,7 +12,6 @@ DRV_VERSION=5.15.0.1
 
 dkms remove ${DRV_NAME}/${DRV_VERSION} --all
 rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}
-rm /etc/sysctl.d/${DRV_NAME}.conf
 
 RESULT=$?
 if [[ "$RESULT" != "0" ]]; then
